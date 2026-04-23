@@ -8,13 +8,13 @@
 // Return: n/a
 /**************************************************************/
   const firebaseConfig = {
-    apiKey: ,
-    authDomain: ,
-    databaseURL: ,
-    projectId: ,
-    storageBucket: ,
-    messagingSenderId:,
-    appId:
+  apiKey: "AIzaSyDr_w7idgxVzZCoSgAfyJrE19q9x86cozY",
+  authDomain: "jackson-li-12comp.firebaseapp.com",
+  databaseURL: "https://jackson-li-12comp-default-rtdb.firebaseio.com",
+  projectId: "jackson-li-12comp",
+  storageBucket: "jackson-li-12comp.firebasestorage.app",
+  messagingSenderId: "615513125295",
+  appId: "1:615513125295:web:4a5a7af46b468ab019ff5a"
   };
 
   // Initialize Firebase
