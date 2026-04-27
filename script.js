@@ -25,3 +25,12 @@ function kiaOra(){
     }
   )
 }
+
+function goodbye(){
+  console.log("Ka kite ano")
+  firebase.database().ref('/').set(
+    {
+      message: 'Ka kite ano'
+    }
+  )
+}
