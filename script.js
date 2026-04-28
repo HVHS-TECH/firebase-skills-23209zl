@@ -43,7 +43,7 @@ function DO_THIS(snapshot) {
 }
 
 function simpleRead() {
-  console.log("REeading message");
+  console.log("Reading message");
   firebase.database().ref('/').child('message').once('value', displayRead);
   console.log("Leaving simpleRead")
 }
