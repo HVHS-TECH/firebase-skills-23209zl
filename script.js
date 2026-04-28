@@ -18,7 +18,7 @@ const HTML_OUTPUT = document.getElementById("databaseOutput");
 // This means it replaces the whole database with message:Hello World
 /**************************************************************/
 function kiaOra(){
-  console.log("Kia Ora!()")
+  console.log("Kia Ora!()");
   firebase.database().ref('/').set(
     {
       message: 'Kia Ora!'
@@ -27,10 +27,27 @@ function kiaOra(){
 }
 
 function goodbye(){
-  console.log("Ka kite ano")
+  console.log("Ka kite ano");
   firebase.database().ref('/').set(
     {
       message: 'Ka kite ano'
     }
   )
+}
+
+
+firebase.database().ref('/message').once('value', DO_THIS)
+function DO_THIS(snapshot){
+console.log(snapshot.val());
+}
+
+function simpleRead(){
+  console.log("REeading message");
+  firebase.database().ref('/').child('message').once('value', displayRead);
+  console.log("Leaving simpleRead")
+}
+
+function displayRead(snapshot){
+console.log("Running displayRead(), the message is: " + snapshot.val())
+HTML_OUTPUT.innerHTML = snapshot.val();
 }
