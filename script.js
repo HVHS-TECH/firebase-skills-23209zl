@@ -51,7 +51,9 @@ function simpleRead() {
 function displayRead(snapshot) {
   console.log("Running displayRead(), the message is: " + snapshot.val())
   HTML_OUTPUT.innerHTML = snapshot.val();
+}
 
+ function display(snapshot){
   var dbData = snapshot.val();
   if (dbData == null){
     console.log('There was no record when trying to read the message');
@@ -59,7 +61,7 @@ function displayRead(snapshot) {
   else {
     console.log('The message is: ' + dbData)
   }
-}
+ }
 
 function fb_readError(error){
   console.log("There was an error reading the message");
