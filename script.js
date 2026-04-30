@@ -72,3 +72,27 @@ function fb_readListener(){
   console.log("Read Listener");
   firebase.database().ref('/message').on('value', displayRead, fb_readError);
 }
+
+function highscoreTable(){
+firebase.database().ref('/').set(
+{
+ game: {
+  users: {
+   Jackson: 100,
+   Mark: 80,
+   Mike: 60,
+  }
+ }
+}
+);
+console.log(highscoreTable)
+}
+
+firebase.database().ref('/game/users/Kobe/').set(200);
+
+let user = "James";
+let score = 0;
+
+firebase.database().ref('/game/users/' +user).set(
+  score
+);
