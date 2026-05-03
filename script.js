@@ -85,7 +85,6 @@ firebase.database().ref('/').set(
  }
 }
 );
-console.log(highscoreTable)
 }
 
 firebase.database().ref('/game/users/Kobe/').set(200);
@@ -96,3 +95,19 @@ let score = 0;
 firebase.database().ref('/game/users/' +user).set(
   score
 );
+
+function fb_readHighScores(){
+console.log("Reading High Scores");
+firebase.database().ref('/game/users').once('value', displayRead, fb_readError)
+}
+
+let scoreObject ={
+  "Jackson": 100,
+  "Kobe": 200,
+}
+
+console.log(
+  scoreObject["Jackson"]
+)
+
+scoreObject["Jackson"] = 100;
