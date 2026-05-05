@@ -111,3 +111,34 @@ console.log(
 )
 
 scoreObject["Jackson"] = 100;
+
+function fb_displayHighScore(snapshot){
+  snapshot.forEach(fb_showOneScore)
+}
+
+function fb_showOneScore(child){
+console.log(child.val());
+
+
+console.log(child.key);
+console.log(child.key+" got "+ child.val()+" points");
+}
+
+firebase.database().ref('/game/users').orderByValue().once('value', fb_displayHighScore, fb_readError);
+
+function fb_login(){
+  firebase.auth().onAuthStateChanged((user)=>{
+    if(user){
+      var uid = user.uid;
+      console.log("Logged in")
+      console.log(user)
+    } else{
+      console.log("Not logged in")
+    }
+var provider = new firebase.auth.GoogleAuthProvider();
+firebase.auth().signInWithPopup(provider).then(function(result){
+var token = result.credential.accessToken;
+var user = result.user;
+});
+  });
+}
