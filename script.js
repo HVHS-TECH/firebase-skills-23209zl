@@ -149,3 +149,11 @@ function fb_popupLogin(){
   console.log("User has logged in")
   });
 }
+
+let names = Object.keys(highscoreTable);
+console.log("names")
+
+for(i = 0; i < names.length;i++){
+  let key = names [i];
+  console.log("Score " +i+" is for "+ key + ". "+ highscoreTable[key] + " points.")
+}
