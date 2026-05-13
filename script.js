@@ -87,41 +87,17 @@ firebase.database().ref('/').set(
 );
 }
 
-firebase.database().ref('/game/users/Kobe/').set(200);
-
-let user = "James";
-let score = 0;
-
-firebase.database().ref('/game/users/' +user).set(
-  score
-);
-
 function fb_readHighScores(){
 console.log("Reading High Scores");
-firebase.database().ref('/game/users').once('value', displayRead, fb_readError)
+firebase.database().ref('/game/users').once('value', fb_displayHighScore, fb_readError)
 }
-
-let scoreObject ={
-  "Jackson": 100,
-  "Kobe": 200,
-}
-
-console.log(
-  scoreObject["Jackson"]
-)
-
-scoreObject["Jackson"] = 100;
 
 function fb_displayHighScore(snapshot){
   snapshot.forEach(fb_showOneScore)
 }
 
 function fb_showOneScore(child){
-console.log(child.val());
-
-
-console.log(child.key);
-console.log(child.key+" got "+ child.val()+" points");
+HTML_OUTPUT.innerHTML =  (child.key + " got "+ child.val() + " points "); 
 }
 
 firebase.database().ref('/game/users').orderByValue().once('value', fb_displayHighScore, fb_readError);
@@ -151,7 +127,7 @@ function fb_popupLogin(){
 }
 
 let names = Object.keys(highscoreTable);
-console.log("names")
+
 
 for(i = 0; i < names.length;i++){
   let key = names [i];
