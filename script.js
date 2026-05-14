@@ -87,29 +87,12 @@ firebase.database().ref('/').set(
 );
 }
 
-firebase.database().ref('/game/users/Kobe/').set(200);
-
-let user = "James";
-let score = 0;
-
-firebase.database().ref('/game/users/' +user).set(
-  score
-);
-
-let scoreObject ={
-  "Jackson": 100,
-  "Kobe": 200,
-}
-
-console.log(
-  scoreObject["Jackson"]
-)
-
-scoreObject["Jackson"] = 100;
 
 function fb_readHighScores(){
 console.log("Reading High Scores");
 firebase.database().ref('/game/users').once('value', fb_displayHighScore, fb_readError)
+firebase.database().ref('/game/users/Kobe/').set(200);
+firebase.database().ref('/game/users/James/').set(100);
 }
 
 function fb_displayHighScore(snapshot){
@@ -118,6 +101,7 @@ function fb_displayHighScore(snapshot){
 
 function fb_showOneScore(child){
 HTML_OUTPUT.innerHTML =  (child.key + " got "+ child.val() + " points "); 
+console.log(child.key + " got " + child.val() + " points ");
 }
 
 firebase.database().ref('/game/users').orderByValue().once('value', fb_displayHighScore, fb_readError);
